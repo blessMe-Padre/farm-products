@@ -3,6 +3,7 @@ import Title from "../../ui/title/title";
 import Button from "../../ui/button/button";
 import FeatureCard from "../../ui/feature-card/feature-card";
 
+import "./style.css";
 
 // список преимуществ
 function FeaturesList({ features }) {

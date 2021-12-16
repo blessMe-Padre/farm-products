@@ -4,11 +4,13 @@ import Footer from "../footer/footer";
 import Header from "../header/header";
 
 // Обёртка для контента страниц
-function PageWrapper() {
+function PageWrapper({ children, features }) {
     return (
         <>
             <Header />
-            <MainPage />
+            <main className="page-wrapper__main">
+                <MainPage features={features} />
+            </main>
             <Footer />
         </>
     );
