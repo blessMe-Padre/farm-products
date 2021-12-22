@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Panel from "../../ui/panel/panel";
 import Title, { TitleSize } from "../../ui/title/title";
-import Button from "../../ui/button/button";
 import ProductCart from "../../ui/product-card/product-card";
+import Button from "../../ui/button/button";
+import CheckboxList from "../../ui/checkbox-list/checkbox-list";
 import {
     LeftColumn,
     StyledOrder,
     AddressInput,
     PriceLabel,
     PriceValue,
-    ProductSwiper
+    ProductSwiper,
+    CheckboxLabel
 } from "./styles";
 
 import { SwiperSlide } from "swiper/react";
@@ -24,6 +26,13 @@ SwiperCore.use([Mousewheel, Pagination, Scrollbar]);
 function Order({
     products // список продуктов
 }) {
+    const [swiperRef, setSwiperRef] = useState(null);
+    const [selectProductIds, setSelectProductIds] = useState([]);
+    const handleOnClickProduct = (value, index) => {
+        if (!selectProductIds.includes(value)) {
+            swiperRef.slideTo(index, 0);
+        }
+    };
     return (
         <StyledOrder as="form">
             <LeftColumn>
@@ -31,7 +40,18 @@ function Order({
                     <Title as="h2" size={TitleSize.EXTRA_SMALL} marginBottom={12}>
                         Выберите продукты
                     </Title>
-                    Чекбокс со списком продуктов
+                    <CheckboxList
+                        labelComponent={CheckboxLabel}
+                        name={"select-products"}
+                        isGridList={false}
+                        options={products.map((product) => ({
+                            value: product.id,
+                            title: product.name
+                        }))}
+                        selectValues={selectProductIds}
+                        onChange={setSelectProductIds}
+                        onClickLabel={handleOnClickProduct}
+                    />
                 </Panel>
                 <Panel>
                     <Title size={TitleSize.EXTRA_SMALL} marginBottom={24}>
@@ -43,15 +63,23 @@ function Order({
                     <Button maxWidth>Купить</Button>
                 </Panel>
             </LeftColumn>
-
-            <ProductSwiper>
+            <ProductSwiper
+                onSwiper={setSwiperRef}
+                spaceBetween={12}
+                direction="vertical"
+                slidesPerView="auto"
+                scrollbar={{ draggable: true }}
+                mousewheel
+                pagination={{
+                    type: "fanction"
+                }}
+            >
                 {products.map((product) => (
                     <SwiperSlide key={product.id}>
                         <ProductCart product={product} />
                     </SwiperSlide>
                 ))}
             </ProductSwiper>
-
         </StyledOrder>
     );
 }
