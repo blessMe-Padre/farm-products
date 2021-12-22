@@ -6,16 +6,13 @@ import Order from "../../pages/order/order";
 import { Main } from "./styles";
 
 // Обёртка для контента страниц
-function PageWrapper({ children, features }) {
+function PageWrapper({ children, features, products }) {
     return (
         <>
             <Header />
             <Main>
-                <Order />
+                <Order products={products} />
             </Main>
-            {/* <main className="page-wrapper__main">
-                <MainPage features={features} />
-            </main> */}
             <Footer />
         </>
     );
