@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/farm-products/static/css/main.65cda878.css",
-    "main.js": "/farm-products/static/js/main.45d742f3.js",
+    "main.js": "/farm-products/static/js/main.91ce1b69.js",
     "static/js/787.0f585d78.chunk.js": "/farm-products/static/js/787.0f585d78.chunk.js",
     "static/media/about.svg": "/farm-products/static/media/about.5ad6d3316f58c9288cb42eef03bbea4e.svg",
     "static/media/logo.svg": "/farm-products/static/media/logo.09a9d6cb694f7ed2b1560ff26298be46.svg",
     "index.html": "/farm-products/index.html",
     "static/media/checkbox.svg": "/farm-products/static/media/checkbox.f9c14cec482370f8ca49957a40051734.svg",
     "main.65cda878.css.map": "/farm-products/static/css/main.65cda878.css.map",
-    "main.45d742f3.js.map": "/farm-products/static/js/main.45d742f3.js.map",
+    "main.91ce1b69.js.map": "/farm-products/static/js/main.91ce1b69.js.map",
     "787.0f585d78.chunk.js.map": "/farm-products/static/js/787.0f585d78.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.65cda878.css",
-    "static/js/main.45d742f3.js"
+    "static/js/main.91ce1b69.js"
   ]
 }
